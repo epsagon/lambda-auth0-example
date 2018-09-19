@@ -1,0 +1,14 @@
+{
+  "name": "lambda-auth0-example",
+  "version": "1.0.0",
+  "description": "Example of AWS Lambda with Auth0 in Python",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Epsagon",
+  "license": "MIT",
+  "dependencies": {
+    "serverless-python-requirements": "^4.2.4"
+  }
+}

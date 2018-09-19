@@ -1,0 +1,22 @@
+service: lambda-auth0-example
+
+provider:
+  name: aws
+  region: ${opt:region, 'us-east-1'}
+  stage: ${opt:stage, 'dev'}
+  runtime: python3.6
+  environment:
+    AUTH0_DOMAIN: ${file(auth0_config.js):domain}
+    AUTH0_TOKEN: ${file(auth0_config.js):token}
+
+functions:
+  get-user-profile:
+    handler: handler.get_user_profile
+    description: "Get user profile from Auth0 given user ID"
+    events:
+      - http:
+          path: get_user_profile/{user_id}
+          method: get
+
+plugins:
+  - serverless-python-requirements
